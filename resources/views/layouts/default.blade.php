@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('includes.fronsite.meta')
+        @include('includes.frontsite.meta')
         <title>@yield('title') | MeetDoctor</title>
 
         @stack('before-style')

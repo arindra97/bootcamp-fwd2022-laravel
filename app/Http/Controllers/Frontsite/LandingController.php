@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontsite;
 
+use App\Http\Controllers\Controller;
+
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +28,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        return view('page.frontsite.landing-page.index');
+        return view('pages.frontsite.landing-page.index');
     }
 
     /**

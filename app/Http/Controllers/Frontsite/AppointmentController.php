@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontsite;
 
+use App\Http\Controllers\Controller;
+
 // use library here
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +37,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        return view('page.frontsite.appointment.index');
+        return view('pages.frontsite.appointment.index');
     }
 
     /**
