@@ -2,8 +2,24 @@
 
 namespace App\Http\Controllers\Frontsite;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+// use everything here
+// use Gate;
+use Auth;
+
+// use modal here
+use App\Models\User;
+use App\Models\Operational\Doctor;
+use App\Models\Operational\Appointment;
+use App\Models\Operational\Transaction;
+use App\Models\MasterData\Consultation;
+use App\Models\MasterData\Specialist;
+use App\Models\MasterData\ConfigPayment;
+
+// thirdparty package
 
 class PaymentController extends Controller
 {
