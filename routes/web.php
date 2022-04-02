@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontsite\PaymentController;
 
 Route::resource('/', LandingController::class);
 
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     // appointment page
     Route::resource('appointment', AppointmentController::class);
