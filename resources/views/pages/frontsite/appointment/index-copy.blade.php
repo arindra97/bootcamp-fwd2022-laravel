@@ -205,7 +205,7 @@
                     </label>
 
                     <div class="grid">
-                        <a href="{{ route('payment.index') }}" class="bg-[#0D63F3] rounded-full mt-5 text-white text-lg font-medium px-10 py-3 text-center">
+                        <a href="{{ route('payment') }}" class="bg-[#0D63F3] rounded-full mt-5 text-white text-lg font-medium px-10 py-3 text-center">
                             Continue
                         </a>
                     </div>
@@ -215,10 +215,6 @@
     </div>
     <!-- End Content -->
 @endsection 
-
-@push('after-style')
-    <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css') }}"/>
-@endpush
 
 @push('after-script')
     <script src="{{ url('https://cdn.jsdelivr.net/npm/flatpickr') }}"></script>
@@ -241,4 +237,3 @@
         });
     </script>
 @endpush
-
