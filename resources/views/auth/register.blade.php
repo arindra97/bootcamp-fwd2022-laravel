@@ -29,45 +29,43 @@
                             @csrf
                             <label class="block">
                                 <input
-                                    type="text"
+                                    for="name" type="text" id="name" name="name"
                                     class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                                    placeholder="Complete Name" for="name" id="name" name="name" required autofocus autocomplete="name"
+                                    placeholder="Complete Name" value="{{ old('name') }}" required autofocus
+                                />
+                                
+                                @if ($errors->has('name'))
+                                    <p class="text-red mb-3 text-sm">{{ $errors->first('name') }}</p>
+                                @endif
+
+                            </label>
+
+                            <label class="block">
+                                <input
+                                    for="email" type="email" id="email" name="email"
+                                    class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
+                                    placeholder="Email Address" value="{{ old('email') }}" required autofocus
                                 />
                             </label>
 
                             <label class="block">
                                 <input
-                                    type="text"
+                                    for="password" type="password" id="password" name="password"
                                     class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                                    placeholder="Age" for="age" id="age" name="age" required autocomplete="age"
+                                    placeholder="Password" value="{{ old('password') }}" required autofocus
                                 />
                             </label>
-
+                            
                             <label class="block">
                                 <input
-                                    type="email"
+                                    for="password_confirmation" type="password" id="password_confirmation" name="password_confirmation"
                                     class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                                    placeholder="Email Address"
-                                    for="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                />
-                            </label>
-
-                            <label class="block">
-                                <input
-                                    type="password"
-                                    class="block w-full rounded-full py-4 text-[#1E2B4F] font-medium placeholder:text-[#AFAEC3] placeholder:font-normal px-7 border border-[#d4d4d4] focus:outline-none focus:border-[#0D63F3]"
-                                    placeholder="Password" for="password"
-                                    id="password"
-                                    name="password"
-                                    required autocomplete="current-password"
+                                    placeholder="Password Confirmation" required autofocus
                                 />
                             </label>
                             
                             <div class="mt-10 grid gap-6">
-                                <button class="text-center text-white text-lg font-medium bg-[#0D63F3] px-10 py-4 rounded-full">
+                                <button type="submit" class="text-center text-white text-lg font-medium bg-[#0D63F3] px-10 py-4 rounded-full">
                                     Continue   
                                 </button>
                                 <a href="{{ route('login') }}" class="text-center text-lg text-[#1E2B4F] font-medium bg-[#F2F6FE] px-10 py-4 rounded-full">

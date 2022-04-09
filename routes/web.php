@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+// frontsite
 use App\Http\Controllers\Frontsite\LandingController;
 use App\Http\Controllers\Frontsite\AppointmentController;
 use App\Http\Controllers\Frontsite\PaymentController;
+
+// backsite
+use App\Http\Controllers\Backsite\DashboardController;
 
 
 /*
@@ -31,8 +35,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
 Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
     
-    return view('Dashboard');
-    
+    // dashboard
+    Route::resource('dashboard', DashboardController::class);
 });
 
 // Route::get('/', function () {
