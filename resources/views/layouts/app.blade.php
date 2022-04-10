@@ -26,7 +26,5 @@
             @include('includes.backsite.script')
         @stack('after-script')
 
-        {{-- modals --}}
-        {{-- if you have modal, create here --}}
     </body>
 </html>

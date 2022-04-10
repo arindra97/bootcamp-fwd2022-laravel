@@ -13,7 +13,6 @@
         </div>
 
         <div class="navbar-container content">
-
             <div class="collapse navbar-collapse" id="navbar-mobile">
 
                 <ul class="nav navbar-nav mr-auto float-left">
@@ -22,7 +21,6 @@
                 </ul>
 
                 <ul class="nav navbar-nav float-right">
-
                     <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up badge-glow">5</span></a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
@@ -86,9 +84,7 @@
                         </a>
                         </div>
                     </li>
-
                 </ul>
-                
             </div>
         </div>
     </div>
