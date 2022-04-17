@@ -36,7 +36,7 @@ class HospitalPatientController extends Controller
             $query->where('type_user_id', 3); // only load user type patient or id 3 in type user table
         })->orderBy('created_at','desc')->get();
 
-        return view('pages.backsite.operational.doctor.index', compact('hospital_patient'));
+        return view('pages.backsite.operational.hospital-patient.index', compact('hospital_patient'));
     }
 
     /**

@@ -17,8 +17,9 @@ use App\Http\Controllers\Backsite\ConsultationController;
 use App\Http\Controllers\Backsite\SpecialistController;
 use App\Http\Controllers\Backsite\ConfigPaymentController;
 use App\Http\Controllers\Backsite\DoctorController;
-use App\Http\Controllers\Backsite\AppointmentBackofficeController;
-use App\Http\Controllers\Backsite\TransactionController;
+use App\Http\Controllers\Backsite\HospitalPatientController;
+use App\Http\Controllers\Backsite\ReportAppointmentController;
+use App\Http\Controllers\Backsite\ReportTransactionController;
 use App\Http\Controllers\Backsite\ReportController;
 
 /*
@@ -54,7 +55,7 @@ Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:
     // role
     Route::resource('role', RoleController::class);
     
-    // type-user
+    // type user
     Route::resource('type_user', TypeUserController::class);
     
     // user
@@ -66,17 +67,20 @@ Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:
     // specialist
     Route::resource('specialist', SpecialistController::class);
     
-    // config-payment
-    Route::resource('config-payment', ConfigPaymentController::class);
+    // config payment
+    Route::resource('config_payment', ConfigPaymentController::class);
     
     // doctor
     Route::resource('doctor', DoctorController::class);
     
-    // appointment-backoffice
-    Route::resource('appointment-backoffice', AppointmentBackofficeController::class);
+    // appointment
+    Route::resource('appointment', ReportAppointmentController::class);
+    
+    // hospital_patient
+    Route::resource('hospital_patient', HospitalPatientController::class);
     
     // transaction
-    Route::resource('transaction', TransactionController::class);
+    Route::resource('transaction', ReportTransactionController::class);
     
     // report
     Route::resource('report', ReportController::class);

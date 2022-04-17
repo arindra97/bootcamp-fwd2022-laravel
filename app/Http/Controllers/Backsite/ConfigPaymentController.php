@@ -98,7 +98,7 @@ class ConfigPaymentController extends Controller
         // get request data from frontsite
         $data = $request->all();
         
-        // update database
+        // update to database
         $config_payment->update($data);
 
         alert()->success('Success Message', 'Successfully updated config payment');
