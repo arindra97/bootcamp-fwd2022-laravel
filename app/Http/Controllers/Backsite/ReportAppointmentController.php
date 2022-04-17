@@ -3,9 +3,25 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
-class AppointmentBackofficeController extends Controller
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+// use everything here
+// use Gate;
+use Auth;
+
+// use model here
+use App\Models\Operational\Appointment;
+use App\Models\Operational\Doctor;
+use App\Models\Operational\Transaction;
+use App\Models\User;
+use App\Models\MasrerData\Consultation;
+
+// third party package 
+
+class ReportAppointmentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +39,9 @@ class AppointmentBackofficeController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.operational.appointment.index');
+        $appointment = Appointment::orderBy('created_at', 'desc')->get();
+
+        return view('pages.backsite.operational.appointment.index', compact('appointment'));
     }
 
     /**

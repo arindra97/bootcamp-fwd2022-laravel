@@ -121,7 +121,7 @@ class SpecialistController extends Controller
      */
     public function destroy(Specialist $specialist)
     {
-        $specialist->delete();
+        $specialist->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted specialist');
         return back();

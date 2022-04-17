@@ -3,9 +3,28 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+// use everything here
+// use Gate;
+use Auth;
+
+// use model here
+use App\Models\Operational\Transaction;
+use App\Models\Operational\Appointment;
+use App\Models\Operational\Doctor;
+use App\Models\User;
+use App\Models\ManagementAccess\DetailUser;
+use App\Models\MasrerData\Consultation;
+use App\Models\MasrerData\Specialist;
+use App\Models\MasrerData\ConfigPayment;
+
+// third party package 
+
+class ReportTransactionController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +42,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.operational.transaction.index');
+        $transaction = Transaction::orderBy('created_at', 'desc')->get();
+
+        return view('pages.backsite.operational.transaction.index', compact('transaction'));
     }
 
     /**

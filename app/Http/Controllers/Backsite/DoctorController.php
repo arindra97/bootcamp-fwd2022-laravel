@@ -115,7 +115,7 @@ class DoctorController extends Controller
         $data = $request->all();
         
         // update database
-        $specialist->update($data);
+        $doctor->update($data);
 
         alert()->success('Success Message', 'Successfully updated doctor');
         return redirect()->route('backsite.doctor.index');
@@ -129,7 +129,7 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        $doctor->delete();
+        $doctor->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted doctor');
         return back();
