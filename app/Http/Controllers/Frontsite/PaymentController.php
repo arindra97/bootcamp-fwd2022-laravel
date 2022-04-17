@@ -96,7 +96,7 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return abort(404);
+        return redirect('pages.frontsite.success.payment-success');
     }
 
     /**

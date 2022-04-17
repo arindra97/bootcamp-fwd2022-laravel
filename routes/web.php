@@ -55,7 +55,7 @@ Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:
     Route::resource('role', RoleController::class);
     
     // type-user
-    Route::resource('type-user', TypeUserController::class);
+    Route::resource('type_user', TypeUserController::class);
     
     // user
     Route::resource('user', UserController::class);

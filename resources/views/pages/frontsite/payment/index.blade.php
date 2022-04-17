@@ -100,9 +100,9 @@
                     </div>
 
                     <!--
-                Icon when desktop is show.
-                star icon mobile: "hidden", star icon dekstop: "flex/show"
-            -->
+                        Icon when desktop is show.
+                        star icon mobile: "hidden", star icon dekstop: "flex/show"
+                    -->
                     <div class="hidden lg:flex items-center gap-x-2">
                         <div class="flex items-center gap-2">
                             <svg
@@ -359,8 +359,8 @@
                         </a>
 
                         <!--
-                button when payment is empty.
-                -->
+                            button when payment is empty.
+                        -->
                         <span
                             x-show="!payment.length"
                             class="bg-[#C0CADA] text-[#808997] cursor-not-allowed px-10 py-3 rounded-full text-center"
