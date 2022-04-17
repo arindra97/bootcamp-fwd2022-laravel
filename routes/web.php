@@ -11,11 +11,11 @@ use App\Http\Controllers\Frontsite\PaymentController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\PermissionController;
 use App\Http\Controllers\Backsite\RoleController;
-use App\Http\Controllers\Backsite\TypeUserController;
 use App\Http\Controllers\Backsite\UserController;
-use App\Http\Controllers\Backsite\ConsultationController;
+use App\Http\Controllers\Backsite\TypeUserController;
 use App\Http\Controllers\Backsite\SpecialistController;
 use App\Http\Controllers\Backsite\ConfigPaymentController;
+use App\Http\Controllers\Backsite\ConsultationController;
 use App\Http\Controllers\Backsite\DoctorController;
 use App\Http\Controllers\Backsite\HospitalPatientController;
 use App\Http\Controllers\Backsite\ReportAppointmentController;
@@ -55,14 +55,11 @@ Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:
     // role
     Route::resource('role', RoleController::class);
     
-    // type user
-    Route::resource('type_user', TypeUserController::class);
-    
     // user
     Route::resource('user', UserController::class);
     
-    // consultation
-    Route::resource('consultation', ConsultationController::class);
+    // type user
+    Route::resource('type_user', TypeUserController::class);
     
     // specialist
     Route::resource('specialist', SpecialistController::class);
@@ -70,14 +67,17 @@ Route::group(['prefix'=>'backsite', 'as' => 'backsite.', 'middleware' => ['auth:
     // config payment
     Route::resource('config_payment', ConfigPaymentController::class);
     
+    // consultation
+    Route::resource('consultation', ConsultationController::class);
+    
     // doctor
     Route::resource('doctor', DoctorController::class);
     
+    // hospital patient
+    Route::resource('hospital_patient', HospitalPatientController::class);
+    
     // appointment
     Route::resource('appointment', ReportAppointmentController::class);
-    
-    // hospital_patient
-    Route::resource('hospital_patient', HospitalPatientController::class);
     
     // transaction
     Route::resource('transaction', ReportTransactionController::class);

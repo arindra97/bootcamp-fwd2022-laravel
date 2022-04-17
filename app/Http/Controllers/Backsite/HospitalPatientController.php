@@ -26,15 +26,26 @@ use App\Models\MasrerData\ConfigPayment;
 class HospitalPatientController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        // for table grid
         $hospital_patient = User::whereHas('detail_user', function (Builder $query){
-            $query->where('type_user_id', 3); // only load user type patient or id 3 in type user table
-        })->orderBy('created_at','desc')->get();
+                                $query->where('type_user_id', 3); // only load user type patient or id 3 in type user table
+                            })->orderBy('created_at','desc')
+                            ->get();
 
         return view('pages.backsite.operational.hospital-patient.index', compact('hospital_patient'));
     }

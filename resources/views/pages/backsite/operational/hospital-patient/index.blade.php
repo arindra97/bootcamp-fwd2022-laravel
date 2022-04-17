@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Type User')
+@section('title', 'Appointment')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="content-overlay"></div>
         <div class="content-wrapper">
 
-            Type User Page
+            Hospital Patient Page
             
         </div>
     </div>
