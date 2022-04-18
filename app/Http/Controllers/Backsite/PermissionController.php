@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 // request
 
 // use everything here
-// use Gate;
+use Gate;
 use Auth;
 
 // use model here

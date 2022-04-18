@@ -26,7 +26,7 @@ class AuthGates
         // checking validation middleware
         // !app()->runninginConsole() (system on or not )
         // $user (user active or not)
-        if(!app()->runninginConsole() && $user)
+        if(!app()->runningInConsole() && $user)
         {
             $roles              = Role::with('permission')->get();
             $permissionsArray   = [];
@@ -42,7 +42,8 @@ class AuthGates
 
             // check user role
             foreach($permissionsArray as $title => $roles){
-                Gate::define($title, function(App\Models\User $user){
+                Gate::define($title, function(\App\Models\User $user)
+                use ($roles){
                     // if user have role then count, value is true (1 > 0)
                     return count(array_intersect($user->role->pluck('id')
                     ->toArray(), $roles)) > 0;

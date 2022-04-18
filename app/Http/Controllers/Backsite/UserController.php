@@ -3,7 +3,18 @@
 namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
+// use library here
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+// use everything here
+use Gate;
+use Auth;
+
+// use model here
+use App\Models\User;
+
 
 class UserController extends Controller
 {
