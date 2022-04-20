@@ -72,7 +72,7 @@ class User extends Authenticatable
     // many to many
     public function role()
     {
-        return $this->belongsToMany('\App\Models\ManagementAccess\Role');
+        return $this->belongsToMany('App\Models\ManagementAccess\Role');
     }
 
     // one to one
