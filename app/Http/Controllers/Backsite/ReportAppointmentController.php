@@ -39,6 +39,9 @@ class ReportAppointmentController extends Controller
      */
     public function index()
     {
+        // create middleware from kernel at here
+        abort_if(Gate::denies('appointment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $appointment = Appointment::orderBy('created_at', 'desc')->get();
 
         return view('pages.backsite.operational.appointment.index', compact('appointment'));

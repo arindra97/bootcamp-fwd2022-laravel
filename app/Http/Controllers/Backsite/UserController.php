@@ -34,7 +34,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('pages.backsite.management-access.user.index');
+        // create middleware from kernel at here
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('pages.backsite.management-access.user.index', compact('user'));
     }
 
     /**

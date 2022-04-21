@@ -16,6 +16,7 @@ class StoreDoctorRequest extends FormRequest
      */
     public function authorize()
     {
+        // create middleware from kernel at here
         abort_if(Gate::denies('doctor_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;

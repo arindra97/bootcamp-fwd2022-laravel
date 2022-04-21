@@ -6,6 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 
 use App\Models\ManagementAccess\Role;
+
+// middleware laravel menggunakan fungsi Gate
 use Illuminate\Support\Facades\Gate;
 
 
@@ -28,7 +30,10 @@ class AuthGates
         // $user (user active or not)
         if(!app()->runningInConsole() && $user)
         {
+            // ambil data role yang memiliki permission
             $roles              = Role::with('permission')->get();
+
+            // array untuk menampung data dari role
             $permissionsArray   = [];
         
             // nested loop
