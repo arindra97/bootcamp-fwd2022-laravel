@@ -73,6 +73,25 @@ class DoctorController extends Controller
         // get all request from frontsite
         $data = $request->all();
 
+        // re format before push to table
+        $data['fee'] = str_replace(',', '', $data['fee']);
+        $data['fee'] = str_replace('IDR ', '', $data['fee']);
+
+        // upload process here
+        $path = public_path('app/public/assets/file-doctor');
+        if(!File::isDirectory($path)){
+            $response = Storage::makeDirectory('public/assets/file-doctor');
+        }
+
+        // change file locations
+        if(isset($data['photo'])){
+            $data['photo'] = $request->file('photo')->store(
+                'assets/file-doctor', 'public'
+            );
+        }else{
+            $data['photo'] = "";
+        }
+         
         // store to database
         $doctor = Doctor::create($data);
 
@@ -123,6 +142,32 @@ class DoctorController extends Controller
         // get request data from frontsite
         $data = $request->all();
         
+        // re format before push to table
+        $data['fee'] = str_replace(',', '', $data['fee']);
+        $data['fee'] = str_replace('IDR ', '', $data['fee']);
+
+        // upload process here
+        // change format photo
+        if(isset($data['photo'])){
+
+             // first checking old photo to delete from storage
+            $get_item = $doctor['photo'];
+
+            // change file locations
+            $data['photo'] = $request->file('photo')->store(
+                'assets/file-doctor', 'public'
+            );
+
+            // delete old photo from storage
+            $data_old = 'storage/'.$get_item;
+            if (File::exists($data_old)) {
+                File::delete($data_old);
+            }else{
+                File::delete('storage/app/public/'.$get_item);
+            }
+
+        }
+
         // update database
         $doctor->update($data);
 
@@ -141,6 +186,16 @@ class DoctorController extends Controller
         // create middleware from kernel at here
         abort_if(Gate::denies('doctor_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
+        // first checking old file to delete from storage
+        $get_item = $doctor['photo'];
+
+        $data = 'storage/'.$get_item;
+        if (File::exists($data)) {
+            File::delete($data);
+        }else{
+            File::delete('storage/app/public/'.$get_item);
+        }
+         
         $doctor->forceDelete();
 
         alert()->success('Success Message', 'Successfully deleted doctor');

@@ -104,6 +104,11 @@ class ConfigPaymentController extends Controller
         // get request data from frontsite
         $data = $request->all();
         
+        // re format before push to table
+        $data['fee'] = str_replace(',', '', $data['fee']);
+        $data['fee'] = str_replace('IDR ', '', $data['fee']);
+        $data['vat'] = str_replace(',', '', $data['vat']);
+        
         // update to database
         $config_payment->update($data);
 
