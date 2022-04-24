@@ -15,6 +15,7 @@ use App\Http\Requests\Doctor\UpdateDoctorRequest;
 // use everything here
 use Gate;
 use Auth;
+use File;
 
 // use model here
 use App\Models\Operational\Doctor;

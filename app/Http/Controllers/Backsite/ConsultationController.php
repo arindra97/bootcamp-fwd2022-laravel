@@ -63,7 +63,7 @@ class ConsultationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreConsultationRequest $consultation)
+    public function store(StoreConsultationRequest $request)
     {
         // get all request from frontsite
         $data = $request->all();
