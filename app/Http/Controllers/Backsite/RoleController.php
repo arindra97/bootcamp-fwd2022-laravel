@@ -74,7 +74,8 @@ class RoleController extends Controller
         // store to database
         $role = Role::create($data);
 
-        return view('pages.backsite.management-access.role.index', compact('role'));
+        alert()->success('Success Message', 'Successfully added new role');
+        return redirect()->route('backsite.role.index');
     }
 
     /**

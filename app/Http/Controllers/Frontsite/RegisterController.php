@@ -13,15 +13,23 @@ use Illuminate\Support\Facades\DB;
 // use Gate;
 use Auth;
 
-// use modal here
+// use model here
 use App\Models\User;
-use App\Models\Operational\Doctor;
-use App\Models\MasterData\Specialist;
 
-// thirdparty package
+// use thirdparty package here
 
-class LandingController extends Controller
-{   
+class RegisterController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,10 +37,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $specialist = Specialist::orderBy('name', 'desc')->limit(5)->get();
-        $doctor = Doctor::orderBy('created_at', 'desc')->limit(4)->get();
-
-        return view('pages.frontsite.landing-page.index', compact('doctor', 'specialist'));
+        return view('pages.frontsite.success.signup-success');
     }
 
     /**
@@ -42,7 +47,7 @@ class LandingController extends Controller
      */
     public function create()
     {
-        return abort(404); 
+        return abort(404);
     }
 
     /**
@@ -100,6 +105,4 @@ class LandingController extends Controller
     {
         return abort(404);
     }
-
-    // costume function here
 }

@@ -26,6 +26,8 @@
 
                         <!-- Form input -->
                         <form method="POST" action="{{ route('register') }}" class="grid gap-6">
+
+                            <!-- token here -->
                             @csrf
                             <label class="block">
                                 <input

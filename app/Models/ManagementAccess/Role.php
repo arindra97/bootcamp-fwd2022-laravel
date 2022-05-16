@@ -41,14 +41,14 @@ class Role extends Model
     }
 
     // one to many
-    public function permission_role()
-    {
-        return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'role_id');
-    }
-    
-    // one to many
     public function role_user()
     {
         return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'role_id');
+    }
+
+    // one to many
+    public function permission_role()
+    {
+        return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'role_id');
     }
 }
